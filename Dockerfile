@@ -4,17 +4,6 @@ LABEL maintainer="Felipe Rodrigues<felipedemacedo.cin@gmail.com>"
 
 RUN apk update
 
-RUN apk -v --update add \
-        python \
-        py-pip \
-        groff \
-        less \
-        mailcap \
-        && \
-    pip install --upgrade awscli==1.14.5 s3cmd==2.0.1 python-magic && \
-    apk -v --purge del py-pip && \
-    rm /var/cache/apk/*
-
 # Install base and dev packages
 RUN apk add --no-cache --virtual .build-deps
 RUN apk add bash
