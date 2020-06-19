@@ -4,6 +4,10 @@ LABEL maintainer="Felipe Rodrigues<felipedemacedo.cin@gmail.com>"
 
 RUN apk update
 
+# https://stackoverflow.com/questions/54099218/how-can-i-install-docker-inside-an-alpine-container
+RUN apk add --update docker openrc
+RUN rc-update add docker boot
+
 # Install base and dev packages
 RUN apk add --no-cache --virtual .build-deps
 RUN apk add bash
